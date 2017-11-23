@@ -1,9 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="col-md-8 col-md-offset-2">
 
-<p>
-  <strong>Name:</strong>
-  <%= @channel.name %>
-</p>
+<h1>
+  <strong>Channel: <%= @channel.name %></strong>
 
-<%= link_to 'Edit', edit_channel_path(@channel) %> |
-<%= link_to 'Back', channels_path %>
+</h1>
+<div id="wrapper">
+  <table class = "table">
+    <thead>
+    <tr>
+      <th>Posts</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody class="table-hover">
+
+    <% @posts.each do |posts| %>
+
+        <tr data-link="<%= post_path(posts, post_history: channel_path(@channel)) %>" class="clickable-row" id=" "posts<%= posts.id%>">
+        <td><%= posts.title %></td>
+        <!--<td><= link_to 'Show', post %></td>-->
+        <!--<td><= link_to 'Edit', edit_channel_path(channel) %></td>-->
+        <!--<td><= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        </tr>
+
+        <% end %>
+
+    </tbody>
+
+  </table>
+  <% if @posts.count < 1 %>
+      <p><%= 'Theres nothing here bro' %></p>
+  <% end %>
+</div>
+  <%= link_to 'New Post', new_post_path %>
+  <!--<= link_to 'Edit', edit_channel_path(@channel) %> |-->
+| <%= link_to 'Back', channels_path %>
+</div>

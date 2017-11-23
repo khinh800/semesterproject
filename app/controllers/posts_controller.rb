@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  # before_action :find_channel
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    # @post = @channel.posts.create(post_params)
 
     respond_to do |format|
       if @post.save
@@ -56,6 +58,10 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
+
+    # def find_channel
+    #   @channel = Channel.find(params[:channel_id])
+    # end
 
     def post_params
       params.require(:post).permit(:title, :description)

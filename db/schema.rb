@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20171120084553) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "channel_id"
+    t.index ["channel_id"], name: "index_posts_on_channel_id"
   end
 
   create_table "users", force: :cascade do |t|
