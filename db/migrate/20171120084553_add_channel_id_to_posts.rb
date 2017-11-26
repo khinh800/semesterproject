@@ -1,5 +1,5 @@
 class AddChannelIdToPosts < ActiveRecord::Migration[5.1]
   def change
-    add_column :posts, :channel_id, :integer
+    add_column :posts, :channel_id, :integer, :default => 1
   end
 end

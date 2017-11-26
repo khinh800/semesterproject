@@ -9,7 +9,7 @@ Channel.create([{name:'Help'}, {name:'Business Ideas'},{name: '/r/prequelmemes'}
 Post.create([{title: 'I need tacos', description: 'test', user_id: 1, channel_id: 1},
               {title: 'dang man', description: 'test', user_id: 1, channel_id: 2},
               {title: 'ps4 4 sale', description: 'test', user_id: 1, channel_id: 1}])
-User.create([{email: 'csatsucks@gmail.com'}])
+
 Comment.create([{content:'test', post_id:1, user_id: 1 },
                  {content:'man thats horrible', post_id:2, user_id: 1 },
                  {content:'10 points xtra ', post_id:1, user_id: 1 }])
